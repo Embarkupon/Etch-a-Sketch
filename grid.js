@@ -1,11 +1,12 @@
-main();
-function main() {
+generateGrid();
+
+function generateGrid() {
     const grid_container = document.querySelector(".grid-container");
     const dimension = 16
     const grid_array = [];
     const cell_array = [];
     const cell_size = 36;
-    const row_width = 36*dimension;
+    const row_width = cell_size*dimension;
     console.log(grid_container);
     for(let i = 0; i < dimension; i++) {
         grid_array[i] = document.createElement("div");
@@ -20,4 +21,14 @@ function main() {
         grid_container.appendChild(grid_array[i]);
     }
     console.log(grid_array.length);
+    draw(cell_size);
+}
+
+function draw(cell_size) {
+    const grid_cells = document.querySelectorAll(".grid-cell");
+    grid_cells.forEach((cell) => {
+        cell.addEventListener("mouseover", () => {
+            cell.setAttribute("style", `background-color: black; border: solid 1px; border-color: black; width: ${cell_size}px; height: ${cell_size}`)
+        });
+    });
 }
