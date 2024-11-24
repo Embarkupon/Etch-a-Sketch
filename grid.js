@@ -4,7 +4,7 @@ generateGrid(temp);
 const grid_button = document.querySelector(".grid-button");
 grid_button.addEventListener("click", () => {
     let dimension = prompt("How many squares per side for the grid? (Max 100)");
-    while (typeof dimension != "number" && (dimension > 100 || dimension < 1)) {
+    while (dimension > 100 || dimension < 1) {
         console.log(typeof dimension + ", " + dimension);
         dimension = prompt("Please enter a number from '1' to '100'.")
     }
